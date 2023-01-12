@@ -3,7 +3,13 @@
 systemctl enable ssh
 service ssh start
 
-/update-custom-services.sh
+# update custom core service only on first startup
+ALREADY_STARTED="/tmp/already_started"
+if [ ! -e $ALREADY_STARTED ]; then
+    touch $ALREADY_STARTED
+    /update-custom-services.sh
+fi
+
 #service core-daemon start
 core-daemon > /var/log/core-daemon.log 2>&1 &
 
@@ -25,8 +31,6 @@ fi
 # /usr/bin/tightvncserver -geometry 1280x800 -depth 24 &
 /usr/bin/tightvncserver -geometry 1920x1080 -depth 24 &
 # /usr/bin/tightvncserver -geometry 2560x1080 -depth 24 &
-
-/usr/local/bin/fakegps.sh > /tmp/fakegps.log 2>&1 &
 
 echo "vnc://127.0.0.1:5901"
 tail -f /dev/null
