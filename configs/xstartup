@@ -1,8 +1,10 @@
 #!/bin/sh
 
 xrdb $HOME/.Xresources
-xsetroot -solid grey
-x-terminal-emulator -rv -geometry 80x24+10+10 -ls -title "$VNCDESKTOP Desktop" &
+xsetroot -solid grey -cursor_name left_ptr
+lxterminal &
+# Allow copy & paste when ClientCutText is set to true on the client side
+autocutsel -fork
 #x-window-manager &
 # Fix to make GNOME work
 export XKL_XMODMAP_DISABLE=1

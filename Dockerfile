@@ -48,7 +48,7 @@ FROM ${ARCH}gh0st42/coreemu-lab:1.0.0
 ENV DEBIAN_FRONTEND noninteractive
 RUN apt-get update && \
     apt-get install -y lxde-core lxterminal \
-    tightvncserver wmctrl xterm \
+    tightvncserver autocutsel wmctrl xterm \
     gstreamer1.0-plugins-bad gstreamer1.0-libav gstreamer1.0-gl \
     && rm -rf /var/lib/apt/lists/*
 
