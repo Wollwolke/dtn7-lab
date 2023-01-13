@@ -11,6 +11,10 @@ if [ ! -e $ALREADY_STARTED ]; then
 fi
 
 #service core-daemon start
+if test -e "/tmp/pycore.1"; then
+    rm -r /tmp/pycore.1
+fi
+
 core-daemon > /var/log/core-daemon.log 2>&1 &
 
 iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
@@ -33,4 +37,4 @@ fi
 # /usr/bin/tightvncserver -geometry 2560x1080 -depth 24 &
 
 echo "vnc://127.0.0.1:5901"
-tail -f /dev/null
+wait
