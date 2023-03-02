@@ -83,9 +83,7 @@ class DtnMonitoringService(CoreService):
         :return: configuration file content
         """
         cfg = f"""#!/bin/bash
-export DISPLAY=:1.0 
-sleep 1 
-xterm -rv -title 'DTN Overview' -e wtfutil -c=/root/dtn7.yml &
+lxterminal -t 'DTN Overview' -e wtfutil -c=/root/dtn7.yml &
         """
         return cfg
 
