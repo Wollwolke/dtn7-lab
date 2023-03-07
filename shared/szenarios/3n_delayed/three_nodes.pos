@@ -1,0 +1,12 @@
+%delay 5.0
+
+robot 50 50 
+n4 400 400
+base 750 50
+-- STEP
+
+n4 100 50
+-- STEP
+
+n4 700 50
+-- STEP
