@@ -1,23 +1,24 @@
 # DTN7 Lab
 
-Run Container:
+This repo contains a containerized environment to test the [ROS2DTN Proxy](https://github.com/Wollwolke/dnt_ros_proxy).
+
+Based on [coreemu-lab](https://github.com/gh0st42/coreemu-lab).
+
+## Building the container
 
 ```sh
-sudo modprobe ebtables
-podman run -it -d --init \
-    --privileged \
-    --name dtn \
-    -p 5901:5901 \
-    -v ./shared:/shared \
-    dtn7-lab
+cd docker
+./build.sh
 ```
-You can then connect with any VNC client to the local *dtn7 showroom* instance with the password `sneakers`.
 
-*NOTE:* In case of weird connection problems within the showroom, please make sure that *ebtables* and *sch_netem* kernel modules are loaded!
+## Running the environment:
 
-## Manually building the container
+```sh
+./clab.sh ./shared/
+```
 
-Just run `docker build -t dtn7-showroom .` and run it with `docker run --rm -it --name showroom -p 5901:5901 --privileged -v /tmp/shared:/shared dtn7-showroom`
+>*NOTE:* In case of weird connection problems within CORE, please make sure that `ebtables` and `sch_netem` kernel modules are loaded!
+
 
 ---
 
@@ -32,13 +33,3 @@ Helper scripts for core network emulator
 - `cea <cmd>` - core execute all
 - `cpa <cmd>` - core parallel all
 - `gf <size> <filename>` - generate file, e.g. `gf 10M /tmp/10m.file`
-
-## Notes
-
-- routing algorithms
-    - epidemic (default)
-    - flooding
-    - sink
-    - external
-    - sprayandwait
-
