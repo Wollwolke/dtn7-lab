@@ -1,0 +1,3 @@
+# ignore files in shared directory
+shared/ros_ws
+shared/bags
