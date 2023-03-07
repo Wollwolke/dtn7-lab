@@ -146,6 +146,9 @@ RUN mkdir -p ${ROS_ROOT}/src && \
     rm -r ${ROS_ROOT}/src/ament_cmake && \
     git -C ${ROS_ROOT}/src/ clone https://github.com/ament/ament_cmake -b ${ROS_DISTRO} && \
 
+    # add foxglove-bridge
+    git -C ${ROS_ROOT}/src/ clone https://github.com/foxglove/ros-foxglove-bridge.git &&\
+
     # install dependencies using rosdep
     apt-get update && \
     cd ${ROS_ROOT} && \
@@ -162,6 +165,14 @@ RUN mkdir -p ${ROS_ROOT}/src && \
     # build it!
     colcon build \
         --merge-install \
+        --packages-skip foxglove_bridge \
+        --cmake-args -DCMAKE_BUILD_TYPE=Release && \
+
+    # build foxglove_bridge as rclcpp is built now
+    source ${ROS_ROOT}/install/setup.bash && \
+    colcon build \
+        --merge-install \
+        --packages-select foxglove_bridge \
         --cmake-args -DCMAKE_BUILD_TYPE=Release && \
 
     # remove build files
@@ -172,6 +183,7 @@ RUN mkdir -p ${ROS_ROOT}/src && \
 
 
 EXPOSE 22
+EXPOSE 8765
 EXPOSE 50051
 
 WORKDIR /shared
