@@ -1,0 +1,15 @@
+model=RandomWaypoint
+ignore=3600.0
+randomSeed=8765
+x=1000.0
+y=1000.0
+duration=900.0
+nn=3
+circular=true
+J=2D
+dim=3
+minspeed=5.0
+maxspeed=10.0
+maxpause=10.0
+aFieldParams=700.0,800.0,1.5,50.0,50.0,400.0,300.0,1.5,50.0,50.0,600.0,100.0,1.0,50.0,50.0,650.0,450.0,1.0,50.0,50.0
+
