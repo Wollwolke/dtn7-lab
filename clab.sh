@@ -43,7 +43,7 @@ podman run -it --rm \
     -v $SHARED:/shared \
     -v /tmp/.X11-unix:/tmp/.X11-unix:rw \
     -v ~/Documents/mt/ros_ws/:/tmp/shared/ros_ws/ \
-    -v ~/Documents/mt/clab/custom_services/:/tmp/shared/custom_services \
+    -v ~/Documents/mt/dtn7-lab/custom_services/:/tmp/shared/custom_services \
     -v ~/Documents/mt/bags:/shared/bags \
     --privileged \
     $INTERACTIVE \

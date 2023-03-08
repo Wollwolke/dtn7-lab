@@ -1,3 +1,7 @@
 # ignore files in shared directory
 shared/ros_ws
 shared/bags
+
+# ignore generated mobility scripts
+*.ns*
+*.movements.gz
