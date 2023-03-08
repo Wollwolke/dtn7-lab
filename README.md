@@ -17,8 +17,18 @@ cd docker
 ./clab.sh ./shared/
 ```
 
->*NOTE:* In case of weird connection problems within CORE, please make sure that `ebtables` and `sch_netem` kernel modules are loaded!
+>ℹ In case of weird connection problems within CORE, please make sure that `ebtables` and `sch_netem` kernel modules are loaded!
 
+## Generating Mobility Scripts using BonnMotion
+
+Generating a screnario:  
+`bm -f <name> -I <paramsFile> <modelName>`
+
+Convert it to ns-2 format:  
+`bm NSFile -f <name>`
+
+>ℹ Resolving the Error *Error reading file*:  
+Delete the last empty line in the `paramsFile`
 
 ---
 
