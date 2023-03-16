@@ -19,9 +19,17 @@ lifetime = 5
 
 # Topics to subscribe to
 sub = [
-    ["/temperature", "sensor_msgs/msg/Temperature"],
-    ["/humidity", "sensor_msgs/msg/RelativeHumidity"]
-    ]
+    [
+        "/temperature",
+        "sensor_msgs/msg/Temperature",
+        "sensors",
+    ],
+    [
+        "/humidity",
+        "sensor_msgs/msg/RelativeHumidity",
+        "sensors",
+    ],
+]
 
 # Topics to publish
 # pub = [
@@ -38,3 +46,15 @@ sub = [
 # clients = [
 #     ["/add_two_ints", "example_interfaces/srv/AddTwoInts"]
 #     ]
+
+# optimization profiles
+[[profile]]
+name = "sensors"
+
+[[profile.module]]
+name = "RateLimit"
+params = ["10"]
+
+# [[profile.module]]
+# name = "Logging"
+# params = []

@@ -87,7 +87,7 @@ class DtnProxyService(CoreService):
                 cfg += "export ROS_DOMAIN_ID=1\n"
             cfg += f"""
 source /shared/ros_ws/install/setup.bash
-ros2 launch dtn_proxy default_launch.py configurationPath:=/shared/configs/{node.name}.toml &"""
+ros2 launch dtn_proxy default_launch.py configurationPath:=/shared/configs/{node.name}.toml > dtnproxy.log"""
         elif filename == cls.configs[1]:
             cfg += """
 pgrep -f 'dtn_proxy/dtnproxy' | xargs kill -2"""

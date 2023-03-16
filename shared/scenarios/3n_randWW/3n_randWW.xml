@@ -78,7 +78,7 @@
       <configuration name="promiscuous" value="0"/>
     </mobility_configuration>
     <mobility_configuration node="1" model="ns2script">
-      <configuration name="file" value="/shared/scenarios/3n_randWW.ns_movements"/>
+      <configuration name="file" value="/shared/scenarios/3n_randWW/bm/3n_randWW.ns_movements"/>
       <configuration name="refresh_ms" value="50"/>
       <configuration name="loop" value="1"/>
       <configuration name="autostart" value="1.0"/>
