@@ -35,9 +35,6 @@ podman run -it --rm \
     --name clab \
     -p 2000:22 \
     -p 51051:50051 \
-    -p 8765:8765 \
-    --cap-add=NET_ADMIN \
-    --cap-add=SYS_ADMIN \
     -e SSHKEY="$(ssh-add -L)" \
     -e DISPLAY \
     -v $SHARED:/shared \
