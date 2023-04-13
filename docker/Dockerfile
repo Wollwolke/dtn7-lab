@@ -1,10 +1,11 @@
 ARG ARCH=
 
-FROM ${ARCH}rust:1.62.1 as builder
+FROM ${ARCH}rust:1.64.0 as builder
 WORKDIR /root
 RUN rustup component add rustfmt
-RUN git clone https://github.com/dtn7/dtn7-rs  && cd dtn7-rs && \
-    cargo install --locked --bins --examples --root /usr/local --path examples && \
+RUN git clone https://github.com/Wollwolke/dtn7-rs.git -b feat_mark_bundles_expired && \
+    cd dtn7-rs && \
+    # cargo install --locked --bins --examples --root /usr/local --path examples && \
     cargo install --locked --bins --examples --root /usr/local --path core/dtn7
 
 
