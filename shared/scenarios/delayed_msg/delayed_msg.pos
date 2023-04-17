@@ -1,0 +1,39 @@
+%delay 5.0
+
+# initial positions
+robot 150 175
+n4 380 315
+base 555 175
+
+# wait for 25s
+-- STEP
+-- STEP
+-- STEP
+-- STEP
+-- STEP
+
+# move n4 to robot & wait 20s
+n4 150 250
+-- STEP
+-- STEP
+-- STEP
+-- STEP
+
+# move n4 away & delete bundles
+n4 380 650 dtnquery store | grep Forward | sort | head -n 2 | awk '"'"'{gsub(/"/,"",$1); print $1}'"'"' | xargs -I {} curl http://localhost:3000/delete?{}
+-- STEP
+
+# move n4 to base & wait 20s
+n4 555 250
+-- STEP
+-- STEP
+-- STEP
+-- STEP
+
+# move n4 to middle to bridge connection
+n4 380 315
+-- STEP
+-- STEP
+-- STEP
+-- STEP
+-- STEP
