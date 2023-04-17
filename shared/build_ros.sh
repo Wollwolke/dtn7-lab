@@ -7,3 +7,4 @@ rm -rf /shared/ros_ws/build /shared/ros_ws/install /shared/ros_ws/log
 cd /shared/ros_ws
 
 colcon build --cmake-clean-cache --packages-up-to dtn_proxy --cmake-args -DCMAKE_BUILD_TYPE=Release -DBUILD_TESTING=OFF
+colcon build --cmake-clean-cache --packages-up-to dtn_sim --cmake-args -DCMAKE_BUILD_TYPE=Release -DBUILD_TESTING=OFF
