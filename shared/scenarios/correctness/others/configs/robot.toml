@@ -1,0 +1,45 @@
+# Directory to store the statistics in [string]
+statsDir = "/var/log/stats"
+
+[dtn]
+# dtnd details
+dtndAddress = "127.0.0.1"
+dtndPort = 3000
+
+# URI with dtn scheme [string]
+remoteNodeId = "dtn://base"
+
+# Bundle lifetime in seconds [int]
+lifetime = 300
+
+
+[ros]
+# Format:
+# [topicName, msgType, [profile]]
+
+# Topics to subscribe to
+sub = [
+    [
+        "/temperature",
+        "sensor_msgs/msg/Temperature",
+        "rate",
+    ],
+    [
+        "/humidity",
+        "sensor_msgs/msg/RelativeHumidity",
+        "change",
+    ],
+]
+
+# optimization profiles
+[[profile]]
+name = "rate"
+[[profile.module]]
+name = "RateLimit"
+params = ["5"]
+
+[[profile]]
+name = "change"
+[[profile.module]]
+name = "OnChange"
+params = []
