@@ -1,0 +1,43 @@
+# Directory to store the statistics in [string]
+statsDir = "/var/log/stats"
+
+[dtn]
+# dtnd details
+dtndAddress = "127.0.0.1"
+dtndPort = 3000
+
+# URI with dtn scheme [string]
+remoteNodeId = "dtn://base"
+
+# Bundle lifetime in seconds [int]
+lifetime = 300
+
+
+[ros]
+# Format:
+# [topicName, msgType, [profile]]
+
+sub = [
+    [
+        "/temperature",
+        "sensor_msgs/msg/Temperature",
+        "compress",
+    ],
+    [
+        "/detectedImages",
+        "sensor_msgs/msg/Image",
+        "compress",
+    ],
+]
+
+# Topics to subscribe to
+# optimization profiles
+
+[[profile]]
+name = "compress"
+[[profile.module]]
+name = "ImageCompress"
+params = []
+[[profile.module]]
+name = "Compress"
+params = []
