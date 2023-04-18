@@ -38,8 +38,12 @@ class MsgGenerator(Node):
         self.humidMsg.relative_humidity = random.uniform(0,1)
         self.humidMsg.variance = random.uniform(0,1)
 
-        self.tempPub.publish(self.tempMsg)
-        self.humidPub.publish(self.humidMsg)
+        if random.uniform(0,1) < 0.5:
+            self.tempPub.publish(self.tempMsg)
+            self.humidPub.publish(self.humidMsg)
+        else:
+            self.humidPub.publish(self.humidMsg)
+            self.tempPub.publish(self.tempMsg)
 
     def __del__(self):
         print(f"msg_generator interval: {self.timerInterval}")
