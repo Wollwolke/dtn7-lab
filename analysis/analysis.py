@@ -24,8 +24,11 @@ def run_notebook(notebook_file, output_file, **arguments):
 
 PATH = "/home/lars/Documents/mt/dtn7-lab/shared/scenarios/"
 
-for scenario in os.scandir(PATH):
-    for iter in os.scandir(scenario.path):
-        if iter.is_dir() and "results" in iter.path:
-            print(iter.path)
-            run_notebook("analysis.ipynb", f"{iter.path}/report.html", path=f"{iter.path}/")
+for root, _, files in os.walk(PATH):
+    if not "results" in root:
+        continue
+
+    for file in files:
+        if file == "experiment.log":
+            name = root.split("-")[-2]
+            run_notebook("analysis.ipynb", f"{root}/{name}.html", path=f"{root}/")
