@@ -1,0 +1,39 @@
+# Directory to store the statistics in [string]
+statsDir = "/var/log/stats"
+
+[dtn]
+# dtnd details
+dtndAddress = "127.0.0.1"
+dtndPort = 3000
+
+# URI with dtn scheme [string]
+remoteNodeId = "dtn://robot"
+
+# Bundle lifetime in seconds [int]
+lifetime = 300
+
+
+[ros]
+# Format:
+# [topicName, msgType, [profile]]
+
+# Topics to publish
+pub = [
+    [
+        "/temperature",
+        "sensor_msgs/msg/Temperature",
+        "split",
+    ],
+    [
+        "/humidity",
+        "sensor_msgs/msg/RelativeHumidity",
+        "split",
+    ],
+]
+
+[[profile]]
+name = "split"
+
+[[profile.module]]
+name = "Split"
+params = ["/temperature", "/humidity"]
