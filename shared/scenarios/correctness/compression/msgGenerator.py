@@ -19,7 +19,7 @@ class MsgGenerator(Node):
         self.tempPub = self.create_publisher(Temperature, "/temperature", 10)
         self.imgPub = self.create_publisher(Image, "/detectedImages", 10)
         self.count = defaultdict(lambda: 0)
-        self.timerInterval = 2.0
+        self.timerInterval = 1.0
         self.timer = self.create_timer(self.timerInterval, self.timerCallback)
 
         self.tempMsg = Temperature()
