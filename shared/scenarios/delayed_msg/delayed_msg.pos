@@ -30,8 +30,8 @@ n4 555 250
 -- STEP
 -- STEP
 
-# move n4 to middle to bridge connection
-n4 380 315
+# move base to robot, to get missed msgs
+base 380 315
 -- STEP
 -- STEP
 -- STEP
