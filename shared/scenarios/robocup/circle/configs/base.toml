@@ -1,0 +1,76 @@
+# Directory to store the statistics in [string]
+statsDir = "/var/log/stats"
+
+[dtn]
+# dtnd details
+dtndAddress = "127.0.0.1"
+dtndPort = 3000
+
+# URI with dtn scheme [string]
+remoteNodeId = "dtn://robot"
+
+# Bundle lifetime in seconds [int]
+lifetime = 5000
+
+
+[ros]
+# Format:
+# [topicName, msgType, [profile]]
+
+# Topics to publish
+pub = [
+    [
+        "/detectedImages",
+        "sensor_msgs/msg/Temperature",
+        "decompress_tf",
+    ],
+    [
+        "/status/position",
+        "geometry_msgs/msg/PointStamped",
+        "decompress",
+    ],
+    [
+        "/status/battery",
+        "sensor_msgs/msg/BatteryState",
+        "decompress",
+    ],
+    [
+        "/status/tempSensor",
+        "diagnostic_msgs/msg/DiagnosticArray",
+        "decompress",
+    ],
+    [
+        "/temperature",
+        "sensor_msgs/msg/Temperature",
+        "sensor",
+    ],
+    [
+        "/humidity",
+        "sensor_msgs/msg/RelativeHumidity",
+        "sensor",
+    ],
+]
+
+[[profile]]
+name = "decompress"
+[[profile.module]]
+name = "Decompress"
+params = []
+
+[[profile]]
+name = "decompress_tf"
+[[profile.module]]
+name = "Decompress"
+params = []
+[[profile.module]]
+name = "SplitTF"
+params = []
+
+[[profile]]
+name = "sensor"
+[[profile.module]]
+name = "Decompress"
+params = []
+[[profile.module]]
+name = "Split"
+params = ["/temperature", "/humidity"]
