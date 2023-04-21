@@ -52,18 +52,6 @@
       <configuration name="link_timeout" value="4"/>
     </core>
   </emane_global_configuration>
-  <service_configurations>
-    <service name="dtnd" node="1">
-      <startups>
-        <startup>bash -c 'dtnd -c dtnd.toml -d &amp;&gt; dtnd.log'</startup>
-      </startups>
-    </service>
-    <service name="dtnd" node="2">
-      <startups>
-        <startup>bash -c 'dtnd -c dtnd.toml &amp;&gt; dtnd.log'</startup>
-      </startups>
-    </service>
-  </service_configurations>
   <session_origin lat="47.579166412353516" lon="-122.13232421875" alt="2.0" scale="100.0"/>
   <session_options>
     <configuration name="controlnet" value="172.16.0.0/24"/>
