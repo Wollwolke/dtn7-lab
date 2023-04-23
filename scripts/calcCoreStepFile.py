@@ -10,8 +10,6 @@ from enum import Enum
 SIM_TIME = 4330  # Bag runtime in s
 SIM_STEP_SIZE = 0.2
 DRONE_WAIT_TIME = 20
-HEADER = f"""# original robot step size {SIM_STEP_SIZE}
-"""
 
 
 class DroneState(Enum):
@@ -133,16 +131,16 @@ flightPatterns = {
             (-50, -100),
         ],
     },
-    "circle": {"type": PatternType.CIRCLE, "drone1": ((50, 0), 100, (-50, 0))},
+    "circle": {"type": PatternType.CIRCLE, "drone1": ((50, 0), 75, (-25, 0))},
     "circleDouble": {
         "type": PatternType.CIRCLE,
-        "drone1": ((50, 0), 100, (-50, 0)),
-        "drone2": ((50, 0), 100, (150, 0)),
+        "drone1": ((50, 0), 75, (-25, 0)),
+        "drone2": ((50, 0), 75, (125, 0)),
     },
     "circleSmall": {
         "type": PatternType.CIRCLE,
-        "drone1": ((50, 0), 100, (-50, 0)),
-        "drone2": ((50, 0), 50, (0, 0)),
+        "drone1": ((50, 0), 75, (-25, 0)),
+        "drone2": ((50, 0), 40, (10, 0)),
     },
     "follow": {"type": PatternType.OPTIMIZED, "drone1": []},
     "cross": {
@@ -189,6 +187,14 @@ def pointOnCircle(M, r, S, dist):
     dx = M[0] + r * cos(newAngle)
     dy = M[1] + r * sin(newAngle)
     return (dx, dy)
+
+
+def getHeader():
+    HEADER = f"""# original robot step size {SIM_STEP_SIZE}
+# drone speed {args.speed}
+# wifi range {args.range}
+"""
+    return HEADER
 
 
 def moveDrone(actualPos, desiredPos):
@@ -346,7 +352,7 @@ def buildStepFiles(robotSteps):
         countdown = int((SIM_TIME + 10) / SIM_STEP_SIZE)
 
         with open(f"{args.output}/{name}.step", "w") as file:
-            file.write(HEADER)
+            file.write(getHeader())
 
             # write inital position
             file.write(f"%0\n")

@@ -1,4 +1,6 @@
 # original robot step size 0.2
+# drone speed 8
+# wifi range 50
 %0
 robot 0 0
 drone1 3 3
