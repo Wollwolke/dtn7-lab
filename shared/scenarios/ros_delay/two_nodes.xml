@@ -1,28 +1,34 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <scenario name="/tmp/tmpyuffnclk">
   <networks>
-    <network id="3" name="wlan3" icon="" canvas="0" type="WIRELESS_LAN">
+    <network id="1" name="wlan3" icon="" canvas="0" type="WIRELESS_LAN">
       <position x="364.0" y="75.0" lat="47.57871192739817" lon="-122.1290543511158" alt="2.0"/>
     </network>
   </networks>
   <devices>
-    <device id="1" name="robot" icon="" canvas="0" type="DTN" class="" image="">
-      <position x="150.0" y="207.0" lat="47.577912024294704" lon="-122.13097674582379" alt="2.0"/>
+    <device id="2" name="robot" icon="" canvas="0" type="DTN" class="" image="">
+      <position x="150.0" y="207.0"/>
       <services>
         <service name="DefaultMulticastRoute"/>
-        <service name="dtnmonitoring"/>
-        <service name="dtnecho"/>
-        <service name="dtnd"/>
+      </services>
+    </device>
+    <device id="3" name="base" icon="" canvas="0" type="DTN" class="" image="">
+      <position x="250.0" y="207.0"/>
+      <services>
+        <service name="DefaultMulticastRoute"/>
       </services>
     </device>
   </devices>
   <links>
-    <link node1="3" node2="1">
+    <link node1="1" node2="2">
       <iface2 id="0" name="eth0" mac="00:00:00:aa:00:00" ip4="10.0.0.20" ip4_mask="24" ip6="2001::14" ip6_mask="128"/>
+    </link>
+    <link node1="1" node2="3">
+      <iface2 id="0" name="eth0" mac="00:00:00:aa:00:01" ip4="10.0.0.21" ip4_mask="24" ip6="2001::15" ip6_mask="128"/>
     </link>
   </links>
   <mobility_configurations>
-    <mobility_configuration node="3" model="basic_range">
+    <mobility_configuration node="1" model="basic_range">
       <configuration name="range" value="275"/>
       <configuration name="bandwidth" value="54000000"/>
       <configuration name="jitter" value="0"/>
@@ -44,7 +50,7 @@
   </emane_global_configuration>
   <session_origin lat="47.579166412353516" lon="-122.13232421875" alt="2.0" scale="100.0"/>
   <session_options>
-    <configuration name="controlnet" value="172.16.0.0/24"/>
+    <configuration name="controlnet" value=""/>
     <configuration name="controlnet0" value=""/>
     <configuration name="controlnet1" value=""/>
     <configuration name="controlnet2" value=""/>
