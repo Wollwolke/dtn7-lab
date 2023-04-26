@@ -1,0 +1,86 @@
+# Example config file for dtn7 daemon
+
+# the name of this node used with dtn naming scheme
+# "node1" becomes "dtn://node1/"
+nodeid = "node1"
+
+# enable/disable debug output in the logs
+debug = true
+
+# Enables advertisement of the beaon period in discovery beacons
+beacon-period = true
+
+# the generation of status reports when requested by bundles
+# can cause massive traffic on the network!
+generate-status-reports = false
+
+# when reprocessing bundles should they be handled sequentially or in parallel?
+# parallel can be faster but may cause congestion on the network
+# sequential is more reliable but slower which can be a problem when nodes are highly mobile
+# and often lose contact with each other
+#
+# sequential is the default
+parallel-bundle-processing = false
+
+# the port on which the web interface listens
+# this provides:
+# - a simple web interface with status information
+# - a REST interface for the dtn7 daemon
+# - a WebSocket interface for the dtn7 daemon
+webport = 3000
+
+# the working directory in which files can be stored
+workdir = "."
+
+# the database to use for storing bundles, e.g., mem, sled, sneakers, etc.
+db = "mem"
+
+[routing]
+# the routing algorithm to use, e.g., flooding, epidemic, sink, sprayandwait, etc.
+strategy = "epidemic"
+
+
+[core]
+# the janitor is responsible for cleaning the bundle buffer
+# and schedule resubmissions.
+# a value of 0 deactives the janitor
+janitor = "10s"
+
+
+[discovery]
+# interval of 0 deactives discovery service
+interval = "1s"
+peer-timeout = "10s"
+
+
+[convergencylayers]
+global.tcp.refuse-existing-bundles = true
+
+# cla.0.id = "mtcp"
+# cla.0.port = 16163
+
+cla.0.id = "tcp"
+# cla.0.port = 4556
+# cla.0.bind = "0.0.0.0"
+
+
+[statics]
+# peers = [
+#     "mtcp://192.168.2.101/testnode",
+#     "mtcp://192.168.2.11/gw1",
+#     "mtcp://127.0.0.1:2342/localcopynode",
+# ]
+
+[endpoints]
+# local endpoints are always reachable under dtn://<nodeid>/<localname>
+# local.0 = "incoming"
+# local.1 = "null"
+
+# group.0 = "dtn://hometown/~weather" # atm ignored
+
+# External CLA settings
+[ecla]
+# If ECLA should be enabled
+enabled  = false
+# If the TCP Port is not 0 ECLA clients can also connect via TCP to that port
+tcp_port = 0
