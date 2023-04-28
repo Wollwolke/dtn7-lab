@@ -1,0 +1,118 @@
+# Directory to store the statistics in [string]
+statsDir = "/var/log/stats"
+
+[dtn]
+# dtnd details
+dtndAddress = "127.0.0.1"
+dtndPort = 3000
+
+# URI with dtn scheme [string]
+remoteNodeId = "dtn://robot"
+
+# Bundle lifetime in seconds [int]
+lifetime = 5000
+
+
+[ros]
+# Format:
+# [topicName, msgType, [profile]]DEBUG
+
+# Topics to publish
+pub = [
+    [
+        "/robot0/detectedImages",
+        "sensor_msgs/msg/Image",
+    ],
+    [
+        "/robot0/status/position",
+        "geometry_msgs/msg/PointStamped",
+    ],
+    [
+        "/robot0/status/battery",
+        "sensor_msgs/msg/BatteryState",
+    ],
+    [
+        "/robot0/status/tempSensor",
+        "diagnostic_msgs/msg/DiagnosticArray",
+    ],
+    [
+        "/robot0/temperature",
+        "sensor_msgs/msg/Temperature",
+    ],
+    [
+        "/robot0/humidity",
+        "sensor_msgs/msg/RelativeHumidity",
+    ],
+    [
+        "/robot0/radiation",
+        "radiation_msgs/msg/DoseRate",
+    ],
+    [
+        "/robot0/atmPressure",
+        "sensor_msgs/msg/FluidPressure",
+    ],
+    [
+        "/robot1/detectedImages",
+        "sensor_msgs/msg/Image",
+    ],
+    [
+        "/robot1/status/position",
+        "geometry_msgs/msg/PointStamped",
+    ],
+    [
+        "/robot1/status/battery",
+        "sensor_msgs/msg/BatteryState",
+    ],
+    [
+        "/robot1/status/tempSensor",
+        "diagnostic_msgs/msg/DiagnosticArray",
+    ],
+    [
+        "/robot1/temperature",
+        "sensor_msgs/msg/Temperature",
+    ],
+    [
+        "/robot1/humidity",
+        "sensor_msgs/msg/RelativeHumidity",
+    ],
+    [
+        "/robot1/radiation",
+        "radiation_msgs/msg/DoseRate",
+    ],
+    [
+        "/robot1/atmPressure",
+        "sensor_msgs/msg/FluidPressure",
+    ],
+    [
+        "/robot2/detectedImages",
+        "sensor_msgs/msg/Image",
+    ],
+    [
+        "/robot2/status/position",
+        "geometry_msgs/msg/PointStamped",
+    ],
+    [
+        "/robot2/status/battery",
+        "sensor_msgs/msg/BatteryState",
+    ],
+    [
+        "/robot2/status/tempSensor",
+        "diagnostic_msgs/msg/DiagnosticArray",
+    ],
+    [
+        "/robot2/temperature",
+        "sensor_msgs/msg/Temperature",
+    ],
+    [
+        "/robot2/humidity",
+        "sensor_msgs/msg/RelativeHumidity",
+    ],
+    [
+        "/robot2/radiation",
+        "radiation_msgs/msg/DoseRate",
+    ],
+    [
+        "/robot2/atmPressure",
+        "sensor_msgs/msg/FluidPressure",
+    ],
+]
