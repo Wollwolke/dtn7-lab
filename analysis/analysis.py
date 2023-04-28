@@ -22,7 +22,11 @@ def run_notebook(notebook_file, output_file, **arguments):
     )
     os.remove(".nbconfig")
 
-PATH = "/home/lars/Documents/mt/dtn7-lab/shared/scenarios/"
+# PATH = "../shared/scenarios/industrial/"
+PATH = "../shared/scenarios/robocup/"
+
+BOOK = "analysis.ipynb"
+# BOOK = "analysis_industrial.ipynb"
 
 for root, _, files in os.walk(PATH):
     if not "results" in root:
@@ -31,4 +35,4 @@ for root, _, files in os.walk(PATH):
     for file in files:
         if file == "experiment.log":
             name = root.split("-")[-2]
-            run_notebook("analysis.ipynb", f"{root}/{name}.html", path=f"{root}/")
+            run_notebook(BOOK, f"{root}/{name}.html", path=f"{root}/")
