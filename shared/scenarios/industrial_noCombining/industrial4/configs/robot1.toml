@@ -1,0 +1,106 @@
+# Directory to store the statistics in [string]
+statsDir = "/var/log/stats"
+
+[dtn]
+# dtnd details
+dtndAddress = "127.0.0.1"
+dtndPort = 3000
+
+# URI with dtn scheme [string]
+remoteNodeId = "dtn://base"
+
+# Bundle lifetime in seconds [int]
+lifetime = 5000
+
+
+[ros]
+# Optional Node Prefix
+nodePrefix = "/robot1"
+
+# Format:
+# [topicName, msgType, [profile]]
+
+# Topics to subscribe to
+sub = [
+    [
+        "/detectedImages",
+        "sensor_msgs/msg/Image",
+        "compress_tf",
+    ],
+    [
+        "/status/position",
+        "geometry_msgs/msg/PointStamped",
+        "rate_expire",
+    ],
+    [
+        "/status/battery",
+        "sensor_msgs/msg/BatteryState",
+        "rate_expire",
+    ],
+    [
+        "/status/sensors",
+        "diagnostic_msgs/msg/DiagnosticArray",
+        "on_change",
+    ],
+    [
+        "/temperature",
+        "sensor_msgs/msg/Temperature",
+        "sensor",
+    ],
+    [
+        "/humidity",
+        "sensor_msgs/msg/RelativeHumidity",
+        "sensor",
+    ],
+    [
+        "/radiation",
+        "radiation_msgs/msg/DoseRate",
+        "sensor",
+    ],
+    [
+        "/atmPressure",
+        "sensor_msgs/msg/FluidPressure",
+        "sensor",
+    ],
+]
+
+# optimization profiles
+
+[[profile]]
+name = "compress_tf"
+[[profile.module]]
+name = "CombineTF"
+params = ["map", "base_link"]
+[[profile.module]]
+name = "ImageCompress"
+params = []
+
+[[profile]]
+name = "rate_expire"
+[[profile.module]]
+name = "RateLimit"
+params = ["30"]
+[[profile.module]]
+name = "Expire"
+params = []
+[[profile.module]]
+name = "Compress"
+params = []
+
+[[profile]]
+name = "on_change"
+[[profile.module]]
+name = "OnChange"
+params = []
+[[profile.module]]
+name = "Compress"
+params = []
+
+[[profile]]
+name = "sensor"
+[[profile.module]]
+name = "Compress"
+params = []
+[[profile.module]]
+name = "RateLimit"
+params = ["5"]
