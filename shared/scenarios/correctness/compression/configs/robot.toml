@@ -17,7 +17,7 @@ lifetime = 300
 # Format:
 # [topicName, msgType, [profile]]
 
-sub = [
+topics = [
     [
         "/temperature",
         "sensor_msgs/msg/Temperature",

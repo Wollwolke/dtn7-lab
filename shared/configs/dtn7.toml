@@ -50,14 +50,18 @@ janitor = "10s"
 [discovery]
 # interval of 0 deactives discovery service
 interval = "1s"
-peer-timeout = "20s"
+peer-timeout = "10s"
 
 
 [convergencylayers]
 global.tcp.refuse-existing-bundles = true
 
-cla.0.id = "mtcp"
-cla.0.port = 16163
+# cla.0.id = "mtcp"
+# cla.0.port = 16163
+
+cla.0.id = "tcp"
+# cla.0.port = 4556
+# cla.0.bind = "0.0.0.0"
 
 
 [statics]

@@ -18,7 +18,7 @@ lifetime = 300
 # [topicName, msgType, [profile]]
 
 # Topics to subscribe to
-sub = [
+topics = [
     [
         "/temperature",
         "sensor_msgs/msg/Temperature",

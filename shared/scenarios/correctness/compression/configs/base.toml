@@ -11,34 +11,3 @@ remoteNodeId = "dtn://robot"
 
 # Bundle lifetime in seconds [int]
 lifetime = 300
-
-
-[ros]
-# Format:
-# [topicName, msgType, [profile]]
-
-# Topics to publish
-pub = [
-    [
-        "/temperature",
-        "sensor_msgs/msg/Temperature",
-        "decompress",
-    ],
-    [
-        "/detectedImages",
-        "sensor_msgs/msg/Image",
-        "decompress",
-    ],
-]
-
-# Topics to subscribe to
-# optimization profiles
-
-[[profile]]
-name = "decompress"
-[[profile.module]]
-name = "ImageDecompress"
-params = []
-[[profile.module]]
-name = "Decompress"
-params = []

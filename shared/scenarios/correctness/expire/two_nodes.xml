@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<scenario name="/tmp/tmpaum38m5j">
+<scenario name="/tmp/tmp5h2rksip">
   <networks>
     <network id="3" name="wlan3" icon="" canvas="0" type="WIRELESS_LAN">
       <position x="364.0" y="75.0" lat="47.57871192739817" lon="-122.1290543511158" alt="2.0"/>
@@ -7,19 +7,19 @@
   </networks>
   <devices>
     <device id="1" name="robot" icon="" canvas="0" type="DTN" class="" image="">
-      <position x="245.0" y="192.0" lat="47.578002922990095" lon="-122.13012334630389" alt="2.0"/>
+      <position x="50.0" y="50.0" lat="47.578863422821634" lon="-122.13187506110792" alt="2.0"/>
       <services>
+        <service name="DefaultMulticastRoute"/>
         <service name="dtnmonitoring"/>
         <service name="dtnd"/>
-        <service name="DefaultMulticastRoute"/>
       </services>
     </device>
     <device id="2" name="base" icon="" canvas="0" type="DTN" class="" image="">
-      <position x="483.0" y="192.0" lat="47.578002922990095" lon="-122.12798535592769" alt="2.0"/>
+      <position x="750.0" y="50.0" lat="47.578863422821634" lon="-122.12558685411909" alt="2.0"/>
       <services>
+        <service name="DefaultMulticastRoute"/>
         <service name="FoxgloveBridge"/>
         <service name="dtnd"/>
-        <service name="DefaultMulticastRoute"/>
       </services>
     </device>
   </devices>

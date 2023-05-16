@@ -11,20 +11,3 @@ remoteNodeId = "dtn://robot"
 
 # Bundle lifetime in seconds [int]
 lifetime = 300
-
-
-[ros]
-# Format:
-# [topicName, msgType, [profile]]
-
-# Topics to publish
-pub = [
-    [
-        "/temperature",
-        "sensor_msgs/msg/Temperature",
-    ],
-    [
-        "/humidity",
-        "sensor_msgs/msg/RelativeHumidity",
-    ],
-]
