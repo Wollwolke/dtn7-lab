@@ -21,7 +21,7 @@ nodePrefix = "/robot2"
 # [topicName, msgType, [profile]]
 
 # Topics to subscribe to
-sub = [
+topics = [
     [
         "/detectedImages",
         "sensor_msgs/msg/Image",

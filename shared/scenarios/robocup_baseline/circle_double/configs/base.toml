@@ -13,34 +13,3 @@ remoteNodeId = "dtn://robot"
 lifetime = 5000
 
 
-[ros]
-# Format:
-# [topicName, msgType, [profile]]
-
-# Topics to publish
-pub = [
-    [
-        "/detectedImages",
-        "sensor_msgs/msg/Image",
-    ],
-    [
-        "/status/position",
-        "geometry_msgs/msg/PointStamped",
-    ],
-    [
-        "/status/battery",
-        "sensor_msgs/msg/BatteryState",
-    ],
-    [
-        "/status/tempSensor",
-        "diagnostic_msgs/msg/DiagnosticArray",
-    ],
-    [
-        "/temperature",
-        "sensor_msgs/msg/Temperature",
-    ],
-    [
-        "/humidity",
-        "sensor_msgs/msg/RelativeHumidity",
-    ],
-]

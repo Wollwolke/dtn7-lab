@@ -14,14 +14,13 @@ lifetime = 5000
 
 
 [ros]
-# Optional Node Prefix
-nodePrefix = "/robot0"
+
 
 # Format:
 # [topicName, msgType, [profile]]
 
 # Topics to subscribe to
-sub = [
+topics = [
     [
         "/detectedImages",
         "sensor_msgs/msg/Image",
